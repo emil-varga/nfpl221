@@ -41,7 +41,8 @@
 - ústna skúška v rozsahu prebraného učiva
 
 === Doporučená literatúra
-P. A. Davidson: Turbulence\
+P. A. Davidson, Turbulence\
+H. Tennekes, J. L. Lumley, A First Course in Turbulence\
 M. Samimy _et al_, A Gallery of Fluid Motion, CUP (2003)\
 M. Van Dyke, An Album of Fluid Motion 
 
