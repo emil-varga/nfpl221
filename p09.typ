@@ -18,6 +18,22 @@
 
   #link("emil.varga@matfyz.cuni.cz")
 
-  #link("https://superfluid.cz/blah")
+  #link("https://superfluid.cz/nfpl221")
 ]
 )
+
+== Typy supratekutín
+4He, 3He, BECs, polaritony
+
+= Supratekutosť He
+== Základné vlastnosti
+
+== Dvoj-zložkový model
+
+== Andronikašviliho experiment
+
+== Makroskopická vlnová funkcia
+
+== Kvantovanie cirkulácie
+
+== Kvantované víry
