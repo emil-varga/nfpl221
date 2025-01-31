@@ -24,8 +24,12 @@
 )
 
 == Motivácia - baroklinická turbulencia
-
-== Obecné 2D prúdenie
+#figure(image("figs/baroclinic_vortex_gas.png"))
+#align(right)[
+  B. Gallet, R. Ferrari The Vortex gas scaling regime of baroclinic turbulence, PNAS *117*, 4491 (2020)
+]
+//== Obecné 2D prúdenie
+//TODO
 
 == Vírové body
 Turbulentné prúdenie si predstavíme ako zložené z elementárnych vírov s cirkuláciami $plus.minus Gamma$.
@@ -91,7 +95,7 @@ A pohybové sa dajú napísať v tvare
 $ Gamma_j dot(x)_j = (diff H)/(diff y_j) "       " Gamma_j dot(y)_j = -(diff H)/(diff x_j) $
 Kde Hamiltonián systému je 
 $ H = -1/(2pi)sum_(j eq.not k) Gamma_j Gamma_k log abs(bold(r)_j - bold(r)_k) $
-Takže $dot(x) = {x, H}$ a $dot(y) = {y, H}$ a $x$ a $y$ sú kanonicky združené premenné
+Takže $x$ a $y$ sú kanonicky združené premenné, čiže fázový priestor je totožný s polohami
 
 == Stavy s veľkou a malou energiou
 $ H = kappa/(2pi)sum_(j eq.not k) Gamma_j Gamma_k log abs(bold(r)_j - bold(r)_k) $
@@ -130,20 +134,75 @@ Vírové body sa pohybujú ako nemenné objekty, vo veľkých množstvách chaot
 #let m(it) = [$angle.l it angle.r$]
 
 === Opakovanie termodynamiky
-Prvá veta termodynamiky sa dá zapísať ako $ dif U = T dif S - p dif V, $ kde vnútorná energia $U = #m[H]$
+Prvá veta termodynamiky sa dá zapísať ako $ dif U = T dif S - p dif V, $ kde vnútorná energia $U = #m[H]$ Pri Onsagerovom vírovom plyne typicky uvažujeme _mikrokanonický_ štatistický súbor pri ktorom je celková energia konštantná a entropia je daná
+$ S = k_B log n, $
+kde $n$ je počet mikrostavov s danou energiou.
 
 === Entropia vírového plynu
+Počet mikrostavov $n$ je možné určiť napr. pomocou Monte-Carlo metód
 
 === Teplota vírového plynu
+Teplotu plynu zavedieme rovnako, ako v termodynamike
+ $ T = ((diff U)/(diff S))_V $
 
+== Plyn v konečnom objeme
+Plyn existuje v konečnom a fixnom objeme (resp. ploche) $A$ $arrow.double$ celkový objem fázového priestoru $ Omega = integral dif x_1 dif y_1 dif x_2 dif y_2 ... dif x_n dif y_n = A^n $
+
+Zaveďme funkciu $Phi(E)$ ktorá udáva veľkosť fázového priestoru pre ktorý je $H(x_1, y_1, x_2, y_2...) < E$, t.j.
+$ Phi(E) = integral_(H < E) dif Omega = integral_(-infinity)^E Phi'(E) dif E, $
+kde druhá rovnosť je len z definície integrálu. Z definície musí byť $Phi'(E) > 0$
+
+Musí platiť 
+$ Phi(-infinity) = 0 "                    " Phi(+infinity) = A^n $
+
+Takže musí tiež byť $Phi'(plus.minus infinity) = 0.$ $Phi'(E)$ teda musí mať maximum pre nejaké $E_m$, $Phi''(E_m) = 0$
+//TODO: obrazok
+
+Entropia vyjadrená pomocou $Phi$ je
+$ S = k_B log((Phi'(E))/Omega_1), $
+kde $Omega_1$ je fázový objem na jeden stav.
+
+A pre teplotu bude platiť
+$ T = ((dif S)/(dif E))^(-1) prop Phi'/Phi'' $
+
+*Takže*
+#align(center)[
+#rect[
+- Pre $E < E_m$, $T > 0$
+- Pre $E > E_m$, $T < 0$
+- Pre $E = E_m$, $T = plus.minus infinity$
+]
+]
+
+== Záporné teploty
+#slide()[
+  *Laser*
+
+  Asi najznámejší príklad záporných absolútnych teplôt je laser.
+  - kanonický súbor
+  - populačná inverziy
+][
+  *Vírové body*
+  - mikrokanonický súbor
+  - vysoké energie vyžadujú Usporiadanie
+]
+== Usporiadanie na veľkých škálach a záporné teploty
+Stavy s nízkou aj vysokou energiou majú malú entropiu a vyžadujú Usporiadanie
 == Evaporačné ohrievanie
 
-== Usporiadanie na veľkých škálach a záporné teploty
+== Kondenzácia
 
 == Disipácia / vzájomné trenie
 
 == Experimentálne Realizácie
-Supratekutiny, využíva sa kvantovanosť vírov
 === Bose-Einsteinov kondenzát
+#figure(image("figs/giant_vortex_clusters.png", height: 70%))
+Gauthier et al., Science *364*, 1264–1267 (2019)
+
+=== Polaritóny
+#figure(image("figs/polaritons.png", height: 75%))
+R. Panico _et al._, Nat. Photonics *17*, 451 (2023)
 
 === Supratekuté hélium
+#figure(image("figs/bowen_clusters.png", height: 65%))
+Y. Sachkou _et al._, Science *366*, 1480 (2019)
